@@ -1,0 +1,151 @@
+.ms-header__title {
+  flex: 1 1 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+}
+
+.iconbox.iconbox-xxlb {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 2rem;
+}
+
+.headshot {
+  max-height: 200px;
+}
+
+.icon-bg {
+ms-slider__words  background-color: #96e4fc;
+}
+
+.icon-border {
+  background-color: #000;
+}
+
+.icon-bg i {
+  color: #000;
+}
+
+.ms-slider {
+  display: inline-block;
+  height: 1.5em;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-mask-image: linear-gradient(
+    transparent,
+    white,
+    white,
+    white,
+    transparent
+  );
+  mask-image: linear-gradient(transparent, white, white, white, transparent);
+  mask-type: luminance;
+  mask-mode: alpha;
+  margin-bottom: 0.3rem;
+}
+.ms-slider__words {
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  -webkit-animation-name: wordSlider;
+  animation-name: wordSlider;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  text-align: center;
+}
+.ms-slider__word {
+  display: block;
+  line-height: 1.3em;
+  text-align: left;
+  color: #96e4fc;
+}
+
+@-webkit-keyframes wordSlider {
+  0%,
+  16% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  20%,
+  36% {
+    -webkit-transform: translateY(-16.7%);
+    transform: translateY(-16.7%);
+  }
+  40%,
+  56% {
+    -webkit-transform: translateY(-33.4%);
+    transform: translateY(-33.4%);
+  }
+  60%,
+  76% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  80%,
+  96% {
+    -webkit-transform: translateY(-66.7%);
+    transform: translateY(-66.7%);
+  }
+  100% {
+    -webkit-transform: translateY(-83.3%);
+    transform: translateY(-83.3%);
+  }
+}
+
+@keyframes wordSlider {
+  0%,
+  16% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  20%,
+  36% {
+    -webkit-transform: translateY(-16.7%);
+    transform: translateY(-16.7%);
+  }
+  40%,
+  56% {
+    -webkit-transform: translateY(-33.4%);
+    transform: translateY(-33.4%);
+  }
+  60%,
+  76% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  80%,
+  96% {
+    -webkit-transform: translateY(-66.7%);
+    transform: translateY(-66.7%);
+  }
+  100% {
+    -webkit-transform: translateY(-83.3%);
+    transform: translateY(-83.3%);
+  }
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
