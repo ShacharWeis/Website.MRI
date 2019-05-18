@@ -1,0 +1,56 @@
+CheckSpelling on
+CheckCaseOnly on
+
+<IfModule mod_setenvif.c>
+SetEnvIf X-Forwarded-Proto "^https$" HTTPS
+</IfModule>
+
+<IfModule mod_headers.c>
+Header set Content-Security-Policy "default-src 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https: http://fonts.googleapis.com; img-src 'self' https: data: http://i.imgur.com http://*.gravatar.com; font-src 'self' data: https: http://fonts.gstatic.com; connect-src 'self' https://ipinfo.io https://6cx8vyk5ag.execute-api.us-west-2.amazonaws.com wss://s-usc1c-nss-222.firebaseio.com wss://slackchatv1.firebaseio.com; media-src 'self'; object-src 'self'; child-src 'self' https:; frame-ancestors 'self'; form-action 'self';"
+</IfModule>
+
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+<Files ~ "^.*\.([Ee][Nn][Vv])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# Restrict access to wp-config file
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+# Block WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^index\.html$ / [NC,R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+</IfModule>
