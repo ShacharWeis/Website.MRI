@@ -77,10 +77,10 @@ class Submit
         $submission = (object)$data;
         $mailgun = Mailgun::create(getenv('MAILGUN_KEY'));
         $mailgun->messages()->send(getenv('MAILGUN_DOMAIN'), [
-            'from' => 'no-reply@vral.ca',
+            'from' => 'no-reply@emmarye.com',
             'h:Reply-To' => $data['name'] . ' <' . $data['email'] . '>',
             'to' => getenv('MAILGUN_RECIPIENT'),
-            'subject' => 'Contact Form Submission from packet39.com',
+            'subject' => 'Contact Form Submission from emmarye.com',
             'html' => "
                 <strong>Name: </strong> $submission->name <br/><br/>
                 <strong>Email: </strong> $submission->email <br/><br/>
