@@ -54,7 +54,8 @@ $(function() {
     |
     */
 
-    reCaptchaSiteKey:  '6LfuPaQUAAAAAL0vecOSRrMl7l3My0hjYw1ET6zm',
+    // reCaptchaSiteKey:  '6LfuPaQUAAAAAL0vecOSRrMl7l3My0hjYw1ET6zm',
+    reCaptchaSiteKey:  '',
 
     // See available languages: https://developers.google.com/recaptcha/docs/language
     reCaptchaLanguage: '',
