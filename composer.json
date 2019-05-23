@@ -1,0 +1,11 @@
+{
+    "name": "vral/website.mri",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^3.3",
+        "symfony/http-foundation": "^4.2",
+        "waavi/sanitizer": "^1.0",
+        "mailgun/mailgun-php": "^2.8",
+        "php-http/guzzle6-adapter": "^1.1"
+    }
+}

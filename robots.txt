@@ -1,3 +1,0 @@
-Sitemap: http://packet39.com/sitemap.xml
-User-agent: *
-Disallow:
