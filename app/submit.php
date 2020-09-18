@@ -16,8 +16,6 @@ class Submit
      */
     public function __construct()
     {
-        
-
         $request = Request::createFromGlobals();
         $this->formData = $request->request->all();
         $dotenv = Dotenv::create(dirname(__DIR__));
@@ -84,40 +82,21 @@ class Submit
         $name = $data['name'];
         $email = $data['email'];
 
-        $email = new \SendGrid\Mail\Mail();
+        $sendgrid_mail = new \SendGrid\Mail\Mail();
 
-        $email->setFrom("vice@packet39.com", "EmmaRye Contact Form");
-        $email->setReplyTo($name, $email);
-        $email->setSubject("Contact Form Submission from $name from emmarye.com");
-        //$email->addTo("info@vral.ca", "vral.ca");
-        $email->addTo("dylan@gnarledrootsystems.com", "vral.ca");
-        $email->addContent("text/html",
+        $sendgrid_mail->setFrom("vice@packet39.com", "EmmaRye Contact Form");
+        $sendgrid_mail->setReplyTo($email);
+        $sendgrid_mail->setSubject("Contact Form Submission from $name from emmarye.com");
+        $sendgrid_mail->addTo("info@vral.ca", "vral.ca");
+        $sendgrid_mail->setBccs("dylan@gnarledrootsystems.com");
+        $sendgrid_mail->addContent("text/html",
                 "<strong>Name: </strong> $submission->name <br/><br/>
                 <strong>Email: </strong> $submission->email <br/><br/>
                 <strong>Company: </strong> $submission->company <br/><br/>
                 <strong>Form Message: </strong><br/> $submission->message"
         );
         $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-        try {
-            $response = $sendgrid->send($email);
-            print $response->statusCode() . "\n";
-            print_r($response->headers());
-            print $response->body() . "\n";
-        } catch (Exception $e) {
-            echo 'Caught exception: '. $e->getMessage() ."\n";
-        }
 
-        /*$mailgun = Mailgun::create(getenv('MAILGUN_KEY'));
-        $mailgun->messages()->send(getenv('MAILGUN_DOMAIN'), [
-            'from' => 'no-reply@emmarye.com',
-            'h:Reply-To' => "$name <$email>",
-            'to' => getenv('MAILGUN_RECIPIENT'),
-            'subject' => "Contact Form Submission from $name from emmarye.com",
-            'html' => "
-                <strong>Name: </strong> $submission->name <br/><br/>
-                <strong>Email: </strong> $submission->email <br/><br/>
-                <strong>Company: </strong> $submission->company <br/><br/>
-                <strong>Form Message: </strong><br/> $submission->message"
-        ]);*/
+        $sendgrid->send($sendgrid_mail);
     }
 }
