@@ -513,25 +513,20 @@ Home to the Lucile Packard Children’s Hospital and the highly innovative CHARI
                       name="message"
               ></textarea>
                 </div>
-                <div class="col-12 text-center">
-                    <button class="btn btn-xl btn-block btn-primary" type="submit" value="send">
+                <div class="form-group col-sm-12 col-md-4">
+                    <div data-provide="recaptcha" data-enable="#submit-btn"></div>
+                </div>
+                <div class="col-sm-12 col-md-8 text-center">
+                    <button class="btn btn-xl btn-block btn-primary" style="height: auto" id="submit-btn" type="submit" disabled>
                         Start The Conversation
                     </button>
                 </div>
-<!--                <div class="form-group col-sm-12 col-md-4">-->
-<!--                    <div data-provide="recaptcha" data-enable="#submit-btn"></div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-12 col-md-8 text-center">-->
-<!--                    <button class="btn btn-xl btn-block btn-primary" style="height: auto" id="submit-btn" type="submit" disabled>-->
-<!--                        Start The Conversation-->
-<!--                    </button>-->
-<!--                </div>-->
             </form>
         </div>
     </section>
 </main>
 <!-- Scripts -->
-<script src="assets/js/page.min.js?v=05182019"></script>
-<script src="assets/js/script.js?v=05182019"></script>
+<script src="assets/js/page.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

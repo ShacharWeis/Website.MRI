@@ -55,7 +55,7 @@ $(function() {
     */
 
     // reCaptchaSiteKey:  '6LfuPaQUAAAAAL0vecOSRrMl7l3My0hjYw1ET6zm',
-    reCaptchaSiteKey:  '',
+    reCaptchaSiteKey:  '6LcotssZAAAAAGflRHPB_ZExUCbYXF4aCZvV3DuM',
 
     // See available languages: https://developers.google.com/recaptcha/docs/language
     reCaptchaLanguage: '',
